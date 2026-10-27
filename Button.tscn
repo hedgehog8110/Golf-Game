@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://dgolf6jnwqaa3"]
+
+[ext_resource type="Script" uid="uid://ddpbdu4rgy7y2" path="res://button.gd" id="1_nhor4"]
+[ext_resource type="Texture2D" uid="uid://dwoqakrg5dkfs" path="res://Art/Button top.png" id="2_62euk"]
+[ext_resource type="Texture2D" uid="uid://bbfp84v04yn5n" path="res://Art/Button2_normal.png" id="3_1bi7n"]
+[ext_resource type="Texture2D" uid="uid://jcmtmi8fy05j" path="res://Art/button1_normal.png" id="4_1bi7n"]
+[ext_resource type="Texture2D" uid="uid://8j6m5st2qd4h" path="res://Art/Button2_specular.png" id="4_esgyd"]
+[ext_resource type="Texture2D" uid="uid://dg3sswfs4k5y5" path="res://Art/button1.png" id="5_fetfg"]
+[ext_resource type="Texture2D" uid="uid://ph07bqydxu36" path="res://Art/Light_game.png" id="6_ql8su"]
+[ext_resource type="Texture2D" uid="uid://c0seexf8wnhyj" path="res://Art/Rounded Rectangle.png" id="8_1bi7n"]
+[ext_resource type="Script" uid="uid://dhljp43fluuep" path="res://wire_1.gd" id="8_esgyd"]
+[ext_resource type="Script" uid="uid://cw5pcmv5axdbt" path="res://wire_2.gd" id="10_ql8su"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwy4x"]
+size = Vector2(88, 41)
+
+[sub_resource type="TorusMesh" id="TorusMesh_28dhf"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_ga30w"]
+ring_segments = 4
+
+[sub_resource type="Animation" id="Animation_nhor4"]
+resource_name = "Button press"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(6.556511e-07, 0), Vector2(0, 7.175)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, -7), Vector2(0, -1.66)]
+}
+
+[sub_resource type="Animation" id="Animation_lc4xp"]
+resource_name = "Button release"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.26666665),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 7.175), Vector2(6.556511e-07, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, -1.66), Vector2(0, -7)]
+}
+
+[sub_resource type="Animation" id="Animation_0kkfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.556511e-07, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mc1yv"]
+_data = {
+&"Button press": SubResource("Animation_nhor4"),
+&"Button release": SubResource("Animation_lc4xp"),
+&"RESET": SubResource("Animation_0kkfq")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ly3xq"]
+diffuse_texture = ExtResource("2_62euk")
+normal_texture = ExtResource("3_1bi7n")
+specular_texture = ExtResource("4_esgyd")
+specular_shininess = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rf4pk"]
+diffuse_texture = ExtResource("5_fetfg")
+normal_texture = ExtResource("4_1bi7n")
+specular_shininess = 0.0
+
+[sub_resource type="Animation" id="Animation_w4e1i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.07520978, 0.07520978, 0.07520978, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_866si"]
+resource_name = "Wire off"
+
+[sub_resource type="Animation" id="Animation_0ywks"]
+resource_name = "wire_turn_off"
+length = 1.1333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.07520978, 0.07520978, 0.07520978, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jxf8g"]
+resource_name = "wire_turn_on"
+length = 1.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 0.6),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0.07520978, 0.07520978, 0.07520978, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esgyd"]
+_data = {
+&"RESET": SubResource("Animation_w4e1i"),
+&"Wire off": SubResource("Animation_866si"),
+&"wire_turn_off": SubResource("Animation_0ywks"),
+&"wire_turn_on": SubResource("Animation_jxf8g")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
+
+[node name="Button" type="Area2D" unique_id=660098256]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_nhor4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=654178209]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_lwy4x")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=583192785]
+visible = false
+modulate = Color(1, 0, 0, 1)
+position = Vector2(6.556511e-07, 0)
+scale = Vector2(25.000002, 56.000004)
+mesh = SubResource("TorusMesh_28dhf")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=1182968618]
+visible = false
+position = Vector2(0, 20)
+scale = Vector2(39.999996, 72)
+mesh = SubResource("TorusMesh_ga30w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=919103166]
+libraries/ = SubResource("AnimationLibrary_mc1yv")
+autoplay = &"RESET"
+
+[node name="Button top" type="Sprite2D" parent="." unique_id=610717082]
+position = Vector2(0, -7)
+scale = Vector2(0.25714284, 0.25714284)
+texture = SubResource("CanvasTexture_ly3xq")
+
+[node name="Button bottom" type="Sprite2D" parent="." unique_id=1438330181]
+position = Vector2(0, 11)
+scale = Vector2(0.23376626, 0.23376623)
+texture = SubResource("CanvasTexture_rf4pk")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=83577872]
+scale = Vector2(2.5898283, 2.5898285)
+energy = 1.22
+texture = ExtResource("6_ql8su")
+texture_scale = 0.25
+
+[node name="Wire1" type="Node2D" parent="." unique_id=858113327]
+script = ExtResource("8_esgyd")
+
+[node name="RoundedRectangle" type="Sprite2D" parent="Wire1" unique_id=272764766]
+modulate = Color(0.07520978, 0.07520978, 0.07520978, 1)
+position = Vector2(1065.789, 116)
+scale = Vector2(1.2852005, 1.3125007)
+texture = ExtResource("8_1bi7n")
+region_rect = Rect2(0, 0, 1681, 128)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Wire1" unique_id=1340910470]
+libraries/ = SubResource("AnimationLibrary_esgyd")
+
+[node name="Wire2" type="Node2D" parent="." unique_id=569300238]
+script = ExtResource("10_ql8su")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Wire2" unique_id=375320424]
+libraries/ = SubResource("AnimationLibrary_esgyd")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wire2" unique_id=1973965984]
+position = Vector2(191.25, 64.75)
+scale = Vector2(383.5, 130.5)
+mesh = SubResource("BoxMesh_ly3xq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dus7qxn05sv6"]
+
+[ext_resource type="Texture2D" uid="uid://ckbj02pvfngkq" path="res://Art/Level1.png" id="1_5g41i"]
+[ext_resource type="PackedScene" uid="uid://voqd5htjgqww" path="res://Next_level.tscn" id="3_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://b1cngxugxpxjy" path="res://Gameplay/player.tscn" id="6_a2cb0"]
+[ext_resource type="PackedScene" uid="uid://drstowvykwgb1" path="res://Gameplay/Ball.tscn" id="8_g56ap"]
+[ext_resource type="Texture2D" uid="uid://c0x8nnibhqx73" path="res://Art/costume8.svg" id="9_na6ls"]
+[ext_resource type="PackedScene" uid="uid://i2yx024b3je4" path="res://Levels/Bg.tscn" id="10_fjxbk"]
+[ext_resource type="PackedScene" uid="uid://clethq5ppglrm" path="res://world_environment.tscn" id="11_3jhf0"]
+[ext_resource type="PackedScene" uid="uid://qpiur157tqvh" path="res://kill_zone.tscn" id="12_aiv1b"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_xcayt"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_5g41i"]
+
+[sub_resource type="VisualShader" id="VisualShader_7fl83"]
+mode = 1
+flags/light_only = false
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_xcayt")
+nodes/vertex/2/position = Vector2(-80, 176)
+nodes/vertex/3/node = SubResource("VisualShaderNodeColorFunc_5g41i")
+nodes/vertex/3/position = Vector2(-20.743898, 318.4916)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g41i"]
+shader = SubResource("VisualShader_7fl83")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va7m3"]
+size = Vector2(2995.1365, 148.76868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiv1b"]
+size = Vector2(1024, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wapi5"]
+size = Vector2(173, 559)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xcayt"]
+polygon = PackedVector2Array(836, -203, 836, 85, 188, 85, 188, 203, 960, 203, 960, -203)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5g41i"]
+polygon = PackedVector2Array(-960, 14, -960, 123, -63, 123, -63, 15, -64, 15, -64, 14)
+
+[sub_resource type="Environment" id="Environment_xcayt"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.36
+glow_strength = 1.67
+glow_bloom = 0.5
+fog_mode = 1
+fog_density = 1.0
+adjustment_enabled = true
+
+[node name="Level" type="Node2D" unique_id=1608286112]
+position = Vector2(0, 1645)
+
+[node name="Parallax2D" parent="." unique_id=246090450 instance=ExtResource("10_fjxbk")]
+z_index = -10
+scroll_offset = Vector2(166, 1414)
+
+[node name="Level 1" type="StaticBody2D" parent="." unique_id=1240882684]
+z_index = -3
+collision_layer = 3
+collision_mask = 3
+
+[node name="Level1" type="Sprite2D" parent="Level 1" unique_id=907527192]
+modulate = Color(0.14901961, 1, 0, 1)
+material = SubResource("ShaderMaterial_5g41i")
+position = Vector2(-1599.9608, -9.375006)
+scale = Vector2(1.382389, 1.3823892)
+texture = ExtResource("1_5g41i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1" unique_id=1351479165]
+position = Vector2(-2306, 84.38428)
+scale = Vector2(0.41333678, 1)
+shape = SubResource("RectangleShape2D_va7m3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level 1" unique_id=1064269286]
+position = Vector2(-829, 188.5)
+shape = SubResource("RectangleShape2D_aiv1b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level 1" unique_id=1496892172]
+position = Vector2(-355.5, -11.5)
+shape = SubResource("RectangleShape2D_wapi5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level 1" unique_id=1534616425]
+position = Vector2(-1599.9608, -9.375006)
+scale = Vector2(1.382389, 1.3823892)
+occluder = SubResource("OccluderPolygon2D_xcayt")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Level 1" unique_id=2060720016]
+position = Vector2(-1599.9608, -9.375006)
+scale = Vector2(1.382389, 1.3823892)
+occluder = SubResource("OccluderPolygon2D_5g41i")
+
+[node name="Player" parent="." unique_id=987096105 instance=ExtResource("6_a2cb0")]
+position = Vector2(-2505, -290)
+
+[node name="Ball" parent="." unique_id=918375817 instance=ExtResource("8_g56ap")]
+position = Vector2(-1845, -466)
+
+[node name="Costume8" type="Sprite2D" parent="." unique_id=1528227816]
+visible = false
+position = Vector2(-2305, -142)
+texture = ExtResource("9_na6ls")
+
+[node name="WorldEnvironment" parent="." unique_id=1816509399 instance=ExtResource("11_3jhf0")]
+environment = SubResource("Environment_xcayt")
+
+[node name="Killzone" parent="." unique_id=733413109 instance=ExtResource("12_aiv1b")]
+position = Vector2(-945, 368)
+
+[node name="Goal" parent="." unique_id=1439473025 instance=ExtResource("3_dn5ey")]
+position = Vector2(-889, -46)

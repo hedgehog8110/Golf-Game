@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c07cow7r72ud7"]
+
+[ext_resource type="Shader" uid="uid://c8s0q858r8a58" path="res://Code/Grass shader.gdshader" id="1_52u7y"]
+[ext_resource type="Texture2D" uid="uid://c55beispvtpm7" path="res://Game_index/index.180x180.png" id="2_on8fb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsjtq"]
+shader = ExtResource("1_52u7y")
+shader_parameter/Height = 1.6550000786125
+shader_parameter/Width = 70.000003325
+
+[node name="Index_180x180" type="Sprite2D" unique_id=2001503150]
+material = SubResource("ShaderMaterial_xsjtq")
+texture = ExtResource("2_on8fb")

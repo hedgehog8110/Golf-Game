@@ -1,0 +1,422 @@
+[gd_scene format=3 uid="uid://b1cngxugxpxjy"]
+
+[ext_resource type="Script" uid="uid://dk7ys3jprqqby" path="res://Player.tscn.gd" id="1_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://bmlw5nvov1gji" path="res://costume6 (1).svg" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://citxuf4hcrj6m" path="res://costume1 (8).svg" id="5_n7ghd"]
+[ext_resource type="Script" uid="uid://bsxhmxmcvdv68" path="res://panel.gd" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dlslcgt5epyii" path="res://costume6.svg" id="6_2hs0m"]
+[ext_resource type="Script" uid="uid://cnukb2k6d8c1u" path="res://Pointer.gd" id="6_nvl01"]
+
+[sub_resource type="Animation" id="Animation_1jxqw"]
+resource_name = "Fall"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.8, 12.888889), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.48851353, 0.4885135), Vector2(0.489, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_dw050"]
+resource_name = "Idle"
+length = 1.81
+loop_mode = 1
+step = 36.428
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.85, 1.81),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-0.29, 10.839), Vector2(0.275, 13), Vector2(-0.29, 10.839)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.85, 1.81),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.489, 0.53), Vector2(0.489, 0.46), Vector2(0.489, 0.53)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jump indecator:region_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Jump indecator:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 15, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+resource_name = "Jump"
+length = 0.97
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.01, 0.11, 0.58000004),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.8, 13), Vector2(1.8, 5), Vector2(1.8, 13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.48851353, 0.4885135), Vector2(0.53, 0.65), Vector2(0.48851353, 0.4885135)]
+}
+
+[sub_resource type="Animation" id="Animation_urp6f"]
+resource_name = "Left"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00999999, 0.58),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, -0.17453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.72, 12.225), Vector2(0.225, 12.805)]
+}
+
+[sub_resource type="Animation" id="Animation_nvl01"]
+resource_name = "No_jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jump indecator:region_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jump indecator:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(122, 0, 15, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_n7ghd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5058823, 0.5058823)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.8352962, 11.779411)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jump indecator:region_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Jump indecator:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(122, 0, 15, 15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player costume:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ivps1"]
+resource_name = "Right"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player costume:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.029999971, 0.54),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, 0.17453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player costume:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.03999996, 0.20000003),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.72, 12.225), Vector2(2.4, 12.805)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivps1"]
+_data = {
+&"Fall": SubResource("Animation_1jxqw"),
+&"Idle": SubResource("Animation_dw050"),
+&"Jump": SubResource("Animation_2hs0m"),
+&"Left": SubResource("Animation_urp6f"),
+&"No_jump": SubResource("Animation_nvl01"),
+&"RESET": SubResource("Animation_n7ghd"),
+&"Right": SubResource("Animation_ivps1")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivps1"]
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(16.5, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sweqy"]
+font_size = 32
+
+[node name="Player" type="CharacterBody2D" unique_id=987096105]
+position = Vector2(0, -12)
+collision_layer = 3
+script = ExtResource("1_1jxqw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=745928759]
+position = Vector2(0, 12)
+amount = 1000
+local_coords = true
+draw_order = 1
+emission_shape = 5
+emission_points = PackedVector2Array()
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 80.0
+angular_velocity_max = 720.0
+orbit_velocity_max = 0.9
+linear_accel_min = -72.03
+linear_accel_max = -72.03
+damping_max = 141.365
+scale_amount_min = 0.04
+anim_speed_min = 75.35
+anim_speed_max = 75.35
+anim_offset_min = 1.0
+anim_offset_max = 1.0
+
+[node name="Pointer" type="Sprite2D" parent="." unique_id=1740199665]
+position = Vector2(-0.59500504, 11.999999)
+scale = Vector2(0.18536589, 0.1853659)
+texture = ExtResource("5_n7ghd")
+script = ExtResource("6_nvl01")
+
+[node name="Player costume" type="Sprite2D" parent="." unique_id=737049497]
+position = Vector2(1.8352962, 11.779411)
+scale = Vector2(0.5058823, 0.5058823)
+texture = ExtResource("2_dw050")
+hframes = 3
+
+[node name="Jump indecator" type="Sprite2D" parent="." unique_id=911031251]
+position = Vector2(15, -16)
+scale = Vector2(0.50729924, 0.5072993)
+texture = ExtResource("6_2hs0m")
+region_enabled = true
+region_rect = Rect2(122, 0, 15, 15)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1114069168]
+position = Vector2(-58.595, 0)
+offset = Vector2(0, -200)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.5
+rotation_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=829416533]
+libraries/ = SubResource("AnimationLibrary_ivps1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=969678646]
+position = Vector2(-0.5950012, 12)
+shape = SubResource("CapsuleShape2D_ivps1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1431650101]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1678176346]
+position = Vector2(-0.25, 25)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=968736899]
+follow_viewport_scale = 980.159
+
+[node name="Timer" type="Panel" parent="CanvasLayer" unique_id=962135780 groups=["Timer"]]
+anchors_preset = -1
+anchor_left = -0.04427081
+anchor_right = 0.020365318
+anchor_bottom = 0.030972587
+offset_left = 83.99997
+offset_top = 12.0
+offset_right = 167.51657
+offset_bottom = 52.0
+scale = Vector2(0.993813, 1.0154785)
+script = ExtResource("5_sweqy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Minutes" type="Label" parent="CanvasLayer/Timer" unique_id=1746733703]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0886991
+anchor_top = -0.034816325
+anchor_right = 0.14856742
+anchor_bottom = 0.5151838
+offset_left = -12.0
+offset_top = 8.0
+offset_right = 28.0
+offset_bottom = 31.0
+text = "00:"
+label_settings = SubResource("LabelSettings_sweqy")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Seconds" type="Label" parent="CanvasLayer/Timer" unique_id=1293079602]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21295545
+anchor_top = -0.0327862
+anchor_right = 0.295537
+anchor_bottom = -0.0327862
+offset_left = 14.656681
+offset_top = 7.8780475
+offset_right = 51.068512
+offset_bottom = 63.91668
+text = "00."
+label_settings = SubResource("LabelSettings_sweqy")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Msecs" type="Label" parent="CanvasLayer/Timer" unique_id=368141947]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39695543
+anchor_top = -0.03278617
+anchor_right = 0.47259858
+anchor_bottom = 0.5
+offset_left = 22.81918
+offset_top = 7.8780475
+offset_right = 79.242805
+offset_bottom = 31.91209
+text = "000"
+label_settings = SubResource("LabelSettings_sweqy")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1354609641]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

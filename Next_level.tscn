@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://voqd5htjgqww"]
+
+[ext_resource type="Script" uid="uid://b8ndbwkdy1785" path="res://Code/Goal.gd" id="1_p37ue"]
+[ext_resource type="Texture2D" uid="uid://db7voo4y0w7es" path="res://Art/Goal_normal.png" id="2_n7ed4"]
+[ext_resource type="Texture2D" uid="uid://rg32gbbxxpom" path="res://Art/Goal (2).png" id="3_whrs7"]
+[ext_resource type="Script" uid="uid://bh2kbqv2oj7o1" path="res://camera_2d.gd" id="4_ugral"]
+[ext_resource type="AudioStream" uid="uid://5uakr8sxk8d3" path="res://Sound/freesound_community-good-6081.mp3" id="5_vh0nc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2t4f"]
+size = Vector2(35.75, 149.75)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_28dhf"]
+diffuse_texture = ExtResource("3_whrs7")
+normal_texture = ExtResource("2_n7ed4")
+specular_shininess = 0.0
+
+[sub_resource type="Gradient" id="Gradient_8vtbx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_whrs7"]
+gradient = SubResource("Gradient_8vtbx")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_545p4"]
+
+[sub_resource type="Curve" id="Curve_0b4ue"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.68367344, -360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h8oof"]
+curve = SubResource("Curve_0b4ue")
+
+[sub_resource type="CurveTexture" id="CurveTexture_nqeel"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ainy"]
+particle_flag_disable_z = true
+angle_curve = SubResource("CurveTexture_h8oof")
+use_rotation_3d = true
+direction = Vector3(1, -9.01, 0)
+initial_velocity_min = 368.44
+initial_velocity_max = 629.8
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.099999994
+scale_max = 7.54
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_545p4")
+emission_curve = SubResource("CurveTexture_nqeel")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.99999994
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whrs7"]
+size = Vector2(16.5, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n7ed4"]
+
+[sub_resource type="Animation" id="Animation_cxqyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 504)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vh0nc"]
+resource_name = "Transition_fade_in"
+length = 3.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 0.8333333, 1.4333333),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 3000), Vector2(0, -50), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.4666667),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p37ue"]
+resource_name = "Transition_fade_out"
+length = 1.8666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/Panel/MeshInstance2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly8r3"]
+_data = {
+&"RESET": SubResource("Animation_cxqyn"),
+&"Transition_fade_in": SubResource("Animation_vh0nc"),
+&"Transition_fade_out": SubResource("Animation_p37ue")
+}
+
+[node name="Area2D" type="Area2D" unique_id=1439473025 node_paths=PackedStringArray("par")]
+position = Vector2(-101, -244)
+disable_mode = 1
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_p37ue")
+par = NodePath("GPUParticles2D")
+
+[node name="Goal" type="CollisionShape2D" parent="." unique_id=2069284638]
+position = Vector2(-4.125, 91.875)
+shape = SubResource("RectangleShape2D_i2t4f")
+debug_color = Color(0.0666666, 1, 0, 0.41960785)
+
+[node name="Goal3" type="Sprite2D" parent="." unique_id=9198260]
+z_index = 300
+position = Vector2(-4, 84)
+scale = Vector2(0.27941185, 0.2794119)
+texture = SubResource("CanvasTexture_28dhf")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=639391709]
+position = Vector2(4.0000076, 30)
+scale = Vector2(465.62503, 436.9321)
+color = Color(3.6528807, 1.5870513, 7.5581465, 1)
+energy = 0.73
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 1023
+texture = SubResource("GradientTexture2D_whrs7")
+texture_scale = 0.01
+height = 11.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1604163510]
+z_index = 299
+position = Vector2(0, 24)
+emitting = false
+amount = 171
+lifetime = 6.21
+one_shot = true
+explosiveness = 0.65
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.08
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_1ainy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=96195324]
+position = Vector2(-0.25, 25)
+shape = SubResource("RectangleShape2D_whrs7")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=740030833]
+follow_viewport_scale = 0.001
+
+[node name="Panel" type="Panel" parent="CanvasLayer3" unique_id=431741069]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+scale = Vector2(0.993813, 1.0154785)
+metadata/_edit_use_anchors_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer3/Panel" unique_id=1566728502]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 504)
+scale = Vector2(3982.6406, 2392.9983)
+mesh = SubResource("BoxMesh_n7ed4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer3/Panel" unique_id=567565420]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_ly8r3")
+
+[node name="Timer" type="Timer" parent="CanvasLayer3/Panel" unique_id=2139348056]
+wait_time = 4.0
+
+[node name="Timer2" type="Timer" parent="CanvasLayer3/Panel" unique_id=1722495087]
+wait_time = 2.0
+
+[node name="Timer3" type="Timer" parent="CanvasLayer3/Panel" unique_id=794875258]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2094578174]
+enabled = false
+limit_enabled = false
+script = ExtResource("4_ugral")
+
+[node name="Win" type="AudioStreamPlayer" parent="." unique_id=783644025]
+stream = ExtResource("5_vh0nc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CanvasLayer3/Panel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer3/Panel/Timer2" to="." method="_on_timer_2_timeout"]

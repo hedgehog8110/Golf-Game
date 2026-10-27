@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bj2sng0d52x84"]
+
+[ext_resource type="PackedScene" uid="uid://duuhgar6vn8oi" path="res://Ball.tscn" id="1_gf172"]
+
+[node name="Area2D" type="Area2D" unique_id=1836878348]
+
+[node name="RigidBody2D" parent="." unique_id=1108152098 instance=ExtResource("1_gf172")]

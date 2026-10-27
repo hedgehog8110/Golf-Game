@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="PackedScene" uid="uid://i2yx024b3je4" path="res://Levels/Bg.tscn" id="1_3e0ao"]
+[ext_resource type="Script" uid="uid://bi1wawqntaxmd" path="res://Code/main_scene.gd" id="1_14f5m"]
+[ext_resource type="AudioStream" uid="uid://jyoqpbyfvgc7" path="res://Sound/serhii_kliets-spaceship-arcade-shooter-game-background-soundtrack-318508.mp3" id="1_q4pxk"]
+[ext_resource type="AudioStream" uid="uid://61joiua4papf" path="res://Sound/mondamusic-retro-arcade-game-music-512837.mp3" id="2_14f5m"]
+[ext_resource type="Script" uid="uid://w22c8epmr1y2" path="res://Code/audio_stream_player.gd" id="3_nul8a"]
+[ext_resource type="PackedScene" uid="uid://b1cngxugxpxjy" path="res://Gameplay/player.tscn" id="4_1i8vm"]
+[ext_resource type="PackedScene" uid="uid://cdqhxfc43x3n1" path="res://Levels/Level3.tscn" id="6_oyrw6"]
+[ext_resource type="PackedScene" uid="uid://clethq5ppglrm" path="res://world_environment.tscn" id="7_i67la"]
+[ext_resource type="PackedScene" uid="uid://cmb7q7tcmt75w" path="res://menu.tscn" id="8_l0gsc"]
+[ext_resource type="PackedScene" uid="uid://drstowvykwgb1" path="res://Gameplay/Ball.tscn" id="9_twlps"]
+[ext_resource type="Texture2D" uid="uid://c0x8nnibhqx73" path="res://Art/costume8.svg" id="10_ee22n"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0h7mo"]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("1_q4pxk")
+stream_1 = ExtResource("2_14f5m")
+
+[sub_resource type="Theme" id="Theme_rj586"]
+
+[sub_resource type="Environment" id="Environment_q4pxk"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.36
+glow_strength = 1.67
+glow_bloom = 1.0
+fog_mode = 1
+fog_density = 1.0
+adjustment_enabled = true
+
+[node name="Game" type="Node2D" unique_id=1768765828]
+script = ExtResource("1_14f5m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1103209627]
+stream = SubResource("AudioStreamPlaylist_0h7mo")
+autoplay = true
+script = ExtResource("3_nul8a")
+
+[node name="Level" parent="." unique_id=60705169 instance=ExtResource("6_oyrw6")]
+position = Vector2(19, 2)
+
+[node name="Player" parent="." unique_id=987096105 instance=ExtResource("4_1i8vm")]
+position = Vector2(-2505, -290)
+
+[node name="MenuBar" parent="." unique_id=1959636556 instance=ExtResource("8_l0gsc")]
+theme = SubResource("Theme_rj586")
+
+[node name="Ball" parent="." unique_id=918375817 instance=ExtResource("9_twlps")]
+position = Vector2(-1845, -466)
+
+[node name="Costume8" type="Sprite2D" parent="." unique_id=632258747]
+visible = false
+position = Vector2(-2305, -142)
+texture = ExtResource("10_ee22n")
+
+[node name="Parallax2D" parent="." unique_id=246090450 instance=ExtResource("1_3e0ao")]
+z_index = -10
+scroll_offset = Vector2(-125, 1071)
+
+[node name="WorldEnvironment" parent="." unique_id=1816509399 instance=ExtResource("7_i67la")]
+environment = SubResource("Environment_q4pxk")

@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://cu371x3ms0pfg"]
+
+[ext_resource type="Script" uid="uid://b028jp5hdv8ph" path="res://Code/Teleporter 2.gd" id="1_y2esy"]
+[ext_resource type="Texture2D" uid="uid://bqpnr822gc1p3" path="res://Art/PORTALNO.png" id="2_dj7xc"]
+[ext_resource type="Texture2D" uid="uid://bwd6csttrmjht" path="res://Art/PoRTAL_normal (2).png" id="3_hw00x"]
+[ext_resource type="Texture2D" uid="uid://b3eecahsjtrw8" path="res://Art/PoRTAL_specular (3).png" id="4_xlndr"]
+[ext_resource type="Texture2D" uid="uid://ph07bqydxu36" path="res://Art/Light_game.png" id="5_55c7n"]
+[ext_resource type="Texture2D" uid="uid://llh4sc7s6sh5" path="res://Art/Ball3.png" id="6_dj7xc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y2esy"]
+diffuse_texture = ExtResource("2_dj7xc")
+normal_texture = ExtResource("3_hw00x")
+specular_texture = ExtResource("4_xlndr")
+specular_shininess = 0.26
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2esy"]
+size = Vector2(163.44606, 130.4348)
+
+[sub_resource type="Animation" id="Animation_hw00x"]
+resource_name = "Ball"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.5568628, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xlndr"]
+resource_name = "Player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_55c7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vqobq"]
+_data = {
+&"Ball": SubResource("Animation_hw00x"),
+&"Player": SubResource("Animation_xlndr"),
+&"RESET": SubResource("Animation_55c7n")
+}
+
+[node name="Teleporter2" type="Area2D" unique_id=653800974]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_y2esy")
+
+[node name="PortalNoBevel" type="Sprite2D" parent="." unique_id=1816238878]
+position = Vector2(0, -16)
+texture = SubResource("CanvasTexture_y2esy")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1133807462]
+z_index = -2
+scale = Vector2(2.5898283, 2.5898285)
+color = Color(1, 1, 0, 1)
+energy = 0.4
+texture = ExtResource("5_55c7n")
+texture_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=68007560]
+position = Vector2(-0.49999905, -15.999998)
+scale = Vector2(1.242, 1.242)
+shape = SubResource("RectangleShape2D_y2esy")
+
+[node name="Shadow2" type="Sprite2D" parent="." unique_id=258954366]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(-0.10350025, 48.862797)
+scale = Vector2(0.041563787, 0.041563787)
+texture = ExtResource("5_55c7n")
+
+[node name="Playericon" type="Sprite2D" parent="." unique_id=1219305830]
+position = Vector2(-0.103408806, 48.862675)
+scale = Vector2(0.056, 0.056)
+texture = ExtResource("6_dj7xc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=474395687]
+root_node = NodePath("../Playericon")
+libraries/ = SubResource("AnimationLibrary_vqobq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

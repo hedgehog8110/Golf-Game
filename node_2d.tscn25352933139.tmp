@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="Script" uid="uid://dk7ys3jprqqby" path="res://Player.tscn.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://bkamoivqkq4g7" path="res://costume1.png" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://bubab45fqy3bw" path="res://New Piskel-1.png (4).png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://bp0gks185juuv" path="res://costume1 (1).svg" id="4_kdubu"]
+[ext_resource type="PackedScene" uid="uid://qpiur157tqvh" path="res://kill_zone.tscn" id="4_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://dritoua02y001" path="res://costume2 (1).svg" id="5_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://citxuf4hcrj6m" path="res://costume1 (8).svg" id="5_rj586"]
+[ext_resource type="Script" uid="uid://cnukb2k6d8c1u" path="res://Pointer.gd" id="7_d21ai"]
+[ext_resource type="Script" uid="uid://dxtwhwovp8vny" path="res://bullet.gd" id="8_4d7sh"]
+[ext_resource type="Script" uid="uid://w22c8epmr1y2" path="res://audio_stream_player.gd" id="10_0h7mo"]
+[ext_resource type="AudioStream" uid="uid://61joiua4papf" path="res://mondamusic-retro-arcade-game-music-512837.mp3" id="10_hqns4"]
+[ext_resource type="AudioStream" uid="uid://jyoqpbyfvgc7" path="res://serhii_kliets-spaceship-arcade-shooter-game-background-soundtrack-318508.mp3" id="12_x0ka3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(574, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(276.5, 94)
+
+[sub_resource type="Environment" id="Environment_q6r6c"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.67
+glow_bloom = 1.0
+adjustment_enabled = true
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
+distance = -531.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8iy"]
+size = Vector2(86.08688, 20)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0h7mo"]
+stream_count = 2
+stream_0 = ExtResource("12_x0ka3")
+stream_1 = ExtResource("10_hqns4")
+
+[node name="Game" type="Node2D" unique_id=1768765828]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1791505651]
+position = Vector2(58.595, 0)
+script = ExtResource("1_0hol4")
+
+[node name="Player sprite" type="Sprite2D" parent="Player" unique_id=2057764759]
+modulate = Color(1.8832343, 1.8832343, 1.8832343, 1)
+self_modulate = Color(5.7347174, 5.7347174, 5.7347174, 1)
+visibility_layer = 513
+position = Vector2(-13.595001, 12.000001)
+scale = Vector2(0.15730932, 0.15730932)
+texture = ExtResource("2_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2035550315]
+position = Vector2(-0.5950012, 12)
+shape = SubResource("CapsuleShape2D_epypp")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2023598341]
+position = Vector2(-58.595, 0)
+offset = Vector2(0, -100)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+rotation_smoothing_enabled = true
+
+[node name="Pointer" type="Sprite2D" parent="Player" unique_id=1908551619]
+position = Vector2(-0.59500504, 11.999999)
+scale = Vector2(0.18536589, 0.1853659)
+texture = ExtResource("5_rj586")
+script = ExtResource("7_d21ai")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1156874033]
+position = Vector2(101, 244)
+
+[node name="Level sprite" type="Sprite2D" parent="StaticBody2D" unique_id=790389157]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(4.088911, 4.088911, 4.088911, 1)
+visibility_layer = 513
+position = Vector2(-100, -246)
+scale = Vector2(0.09495117, 0.09495117)
+texture = ExtResource("3_epypp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=395215425]
+position = Vector2(-100, -246)
+scale = Vector2(0.09495117, 0.09495117)
+polygon = PackedVector2Array(6066.2764, -2043.1555, 6066.2764, 5592.3486, -6129.467, 5560.7534, -6108.4033, -2074.7507, -4802.4688, -2074.7507, -4813.0005, 1442.847, 4928.8496, 1442.847, 4939.3813, -2043.1555)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=837291261]
+position = Vector2(-111, -314)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=84339994]
+position = Vector2(-363.25, -554)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2106565328]
+position = Vector2(184, -555)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=148251930]
+environment = SubResource("Environment_q6r6c")
+
+[node name="Costume1(1)" type="Sprite2D" parent="WorldEnvironment" unique_id=868702455]
+visible = false
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -10
+position = Vector2(5, 1)
+scale = Vector2(5.575333, 3.158387)
+texture = ExtResource("4_kdubu")
+
+[node name="KillZone" parent="." unique_id=733413109 instance=ExtResource("4_q6r6c")]
+visible = true
+position = Vector2(1, 536)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillZone" unique_id=501942572]
+shape = SubResource("WorldBoundaryShape2D_0hol4")
+
+[node name="bullet" type="Area2D" parent="." unique_id=1658540644]
+position = Vector2(60, 12)
+scale = Vector2(0.116161615, 0.116161615)
+script = ExtResource("8_4d7sh")
+
+[node name="bullet_sprite" type="Sprite2D" parent="bullet" unique_id=1264979369]
+position = Vector2(-19.369568, 4.2826004)
+texture = ExtResource("5_4d7sh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet" unique_id=102390898]
+position = Vector2(-19.369537, 4.2826004)
+shape = SubResource("RectangleShape2D_ir8iy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1103209627]
+stream = SubResource("AudioStreamPlaylist_0h7mo")
+autoplay = true
+script = ExtResource("10_0h7mo")

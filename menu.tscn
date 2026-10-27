@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cmb7q7tcmt75w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vsb4k"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Theme" id="Theme_vsb4k"]
+
+[sub_resource type="FontVariation" id="FontVariation_vsb4k"]
+
+[sub_resource type="Theme" id="Theme_lti8b"]
+default_base_scale = 2.0
+default_font = SubResource("FontVariation_vsb4k")
+default_font_size = 34
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ouk20"]
+
+[node name="MenuBar" type="MenuBar" unique_id=1959636556]
+material = SubResource("CanvasItemMaterial_vsb4k")
+offset_left = -182.0
+offset_top = -61.0
+offset_right = -35.0
+offset_bottom = 86.0
+theme = SubResource("Theme_vsb4k")
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=645197273]
+physics_interpolation_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.9250001
+anchor_right = 1.9560001
+offset_left = 398.975
+offset_top = -224.0
+offset_right = 0.46798706
+offset_bottom = -149.0
+theme = SubResource("Theme_lti8b")
+theme_override_colors/font_color = Color(0, 0.19066669, 0.88, 1)
+text = "Play"
+icon = SubResource("ViewportTexture_ouk20")
+flat = false
+icon_alignment = 1
+expand_icon = true
+switch_on_hover = true

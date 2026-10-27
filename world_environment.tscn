@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://clethq5ppglrm"]
+
+[ext_resource type="Texture2D" uid="uid://bp0gks185juuv" path="res://costume1 (1).svg" id="1_x16oa"]
+
+[sub_resource type="Environment" id="Environment_q6r6c"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_levels/2 = 0.0
+glow_levels/3 = 0.0
+glow_levels/4 = 0.0
+glow_normalized = true
+glow_intensity = 0.36
+glow_strength = 1.67
+glow_bloom = 1.0
+fog_mode = 1
+fog_density = 1.0
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_x16oa"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1816509399]
+environment = SubResource("Environment_q6r6c")
+camera_attributes = SubResource("CameraAttributesPractical_x16oa")
+
+[node name="Costume1(1)" type="Sprite2D" parent="." unique_id=797549689]
+visible = false
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+z_index = -10
+position = Vector2(31, 17)
+scale = Vector2(10.134333, 5.7410283)
+texture = ExtResource("1_x16oa")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=627821366]
+modulate = Color(1, 1, 1, 0.20784314)
+position = Vector2(-4978, -109)
+amount = 10000
+lifetime = 35.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 4000)
+direction = Vector2(1011.575, 0)
+spread = 7.99
+gravity = Vector2(0, 0)
+initial_velocity_max = 664.27
+scale_amount_max = 10.0

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cgbgbr7k7hsg"]
+
+[ext_resource type="Texture2D" uid="uid://dxscbowtvk8sj" path="res://Art/Compound.png" id="1_w0h0a"]
+[ext_resource type="PackedScene" uid="uid://b1cngxugxpxjy" path="res://Gameplay/player.tscn" id="3_66sol"]
+[ext_resource type="PackedScene" uid="uid://drstowvykwgb1" path="res://Gameplay/Ball.tscn" id="4_2cg1f"]
+[ext_resource type="PackedScene" uid="uid://clethq5ppglrm" path="res://world_environment.tscn" id="5_mf10c"]
+[ext_resource type="PackedScene" uid="uid://qpiur157tqvh" path="res://kill_zone.tscn" id="6_gq4aa"]
+[ext_resource type="PackedScene" uid="uid://i2yx024b3je4" path="res://Levels/Bg.tscn" id="7_x7rwe"]
+[ext_resource type="PackedScene" uid="uid://voqd5htjgqww" path="res://Next_level.tscn" id="9_lf2mf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_p3a75"]
+lightmap_size_hint = Vector2i(10, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3xq"]
+size = Vector2(2749, 109)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ly3xq"]
+points = PackedVector2Array(-452, -291, -902, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3a75"]
+size = Vector2(1034, 104)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w0h0a"]
+polygon = PackedVector2Array(-325, -102.5, -325, -101.5, -327, -101.5, -327, -100.5, -329, -100.5, -329, -99.5, -330, -99.5, -330, -98.5, -332, -98.5, -332, -97.5, -333, -97.5, -333, -96.5, -335, -96.5, -335, -95.5, -336, -95.5, -336, -94.5, -338, -94.5, -338, -93.5, -339, -93.5, -339, -92.5, -341, -92.5, -341, -91.5, -342, -91.5, -342, -90.5, -344, -90.5, -344, -89.5, -345, -89.5, -345, -88.5, -347, -88.5, -347, -87.5, -348, -87.5, -348, -86.5, -350, -86.5, -350, -85.5, -352, -85.5, -352, -84.5, -353, -84.5, -353, -83.5, -355, -83.5, -355, -82.5, -356, -82.5, -356, -81.5, -358, -81.5, -358, -80.5, -359, -80.5, -359, -79.5, -361, -79.5, -361, -78.5, -362, -78.5, -362, -77.5, -364, -77.5, -364, -76.5, -365, -76.5, -365, -75.5, -367, -75.5, -367, -74.5, -368, -74.5, -368, -73.5, -370, -73.5, -370, -72.5, -371, -72.5, -371, -71.5, -373, -71.5, -373, -70.5, -375, -70.5, -375, -69.5, -376, -69.5, -376, -68.5, -378, -68.5, -378, -67.5, -379, -67.5, -379, -66.5, -381, -66.5, -381, -65.5, -382, -65.5, -382, -64.5, -384, -64.5, -384, -63.5, -385, -63.5, -385, -62.5, -387, -62.5, -387, -61.5, -388, -61.5, -388, -60.5, -390, -60.5, -390, -59.5, -391, -59.5, -391, -58.5, -393, -58.5, -393, -57.5, -394, -57.5, -394, -56.5, -396, -56.5, -396, -55.5, -398, -55.5, -398, -54.5, -399, -54.5, -399, -53.5, -401, -53.5, -401, -52.5, -402, -52.5, -402, -51.5, -404, -51.5, -404, -50.5, -405, -50.5, -405, -49.5, -407, -49.5, -407, -48.5, -408, -48.5, -408, -47.5, -410, -47.5, -410, -46.5, -411, -46.5, -411, -45.5, -413, -45.5, -413, -44.5, -414, -44.5, -414, -43.5, -416, -43.5, -416, -42.5, -417, -42.5, -417, -41.5, -419, -41.5, -419, -40.5, -421, -40.5, -421, -39.5, -422, -39.5, -422, -38.5, -424, -38.5, -424, -37.5, -425, -37.5, -425, -36.5, -427, -36.5, -427, -35.5, -428, -35.5, -428, -34.5, -430, -34.5, -430, -33.5, -431, -33.5, -431, -32.5, -433, -32.5, -433, -31.5, -434, -31.5, -434, -30.5, -436, -30.5, -436, -29.5, -437, -29.5, -437, -28.5, -439, -28.5, -439, -27.5, -440, -27.5, -440, -26.5, -442, -26.5, -442, -25.5, -444, -25.5, -444, -24.5, -445, -24.5, -445, -23.5, -447, -23.5, -447, -22.5, -448, -22.5, -448, -21.5, -450, -21.5, -450, -20.5, -451, -20.5, -451, -19.5, -453, -19.5, -453, -18.5, -454, -18.5, -454, -17.5, -456, -17.5, -456, -16.5, -457, -16.5, -457, -15.5, -459, -15.5, -459, -14.5, -460, -14.5, -460, -13.5, -462, -13.5, -462, -12.5, -463, -12.5, -463, -11.5, -465, -11.5, -465, -10.5, -467, -10.5, -467, -9.5, -468, -9.5, -468, -8.5, -470, -8.5, -470, -7.5, -471, -7.5, -471, -6.5, -473, -6.5, -473, -5.5, -474, -5.5, -474, -4.5, -476, -4.5, -476, -3.5, -477, -3.5, -477, -2.5, -479, -2.5, -479, -1.5, -480, -1.5, -480, -0.5, -482, -0.5, -482, 0.5, -483, 0.5, -483, 1.5, -485, 1.5, -485, 2.5, -486, 2.5, -486, 3.5, -488, 3.5, -488, 4.5, -490, 4.5, -490, 5.5, -491, 5.5, -491, 6.5, -493, 6.5, -493, 7.5, -494, 7.5, -494, 8.5, -496, 8.5, -496, 9.5, -497, 9.5, -497, 10.5, -499, 10.5, -499, 11.5, -500, 11.5, -500, 12.5, -502, 12.5, -502, 13.5, -503, 13.5, -503, 14.5, -505, 14.5, -505, 15.5, -506, 15.5, -506, 16.5, -508, 16.5, -508, 17.5, -836, 17.5, -836, 61.5, 285, 61.5, 285, 17.5, -140, 17.5, -140, 16.5, -142, 16.5, -142, 15.5, -143, 15.5, -143, 14.5, -145, 14.5, -145, 13.5, -146, 13.5, -146, 12.5, -148, 12.5, -148, 11.5, -149, 11.5, -149, 10.5, -151, 10.5, -151, 9.5, -152, 9.5, -152, 8.5, -154, 8.5, -154, 7.5, -155, 7.5, -155, 6.5, -157, 6.5, -157, 5.5, -158, 5.5, -158, 4.5, -160, 4.5, -160, 3.5, -162, 3.5, -162, 2.5, -163, 2.5, -163, 1.5, -165, 1.5, -165, 0.5, -166, 0.5, -166, -0.5, -168, -0.5, -168, -1.5, -169, -1.5, -169, -2.5, -171, -2.5, -171, -3.5, -172, -3.5, -172, -4.5, -174, -4.5, -174, -5.5, -175, -5.5, -175, -6.5, -177, -6.5, -177, -7.5, -178, -7.5, -178, -8.5, -180, -8.5, -180, -9.5, -181, -9.5, -181, -10.5, -183, -10.5, -183, -11.5, -185, -11.5, -185, -12.5, -186, -12.5, -186, -13.5, -188, -13.5, -188, -14.5, -189, -14.5, -189, -15.5, -191, -15.5, -191, -16.5, -192, -16.5, -192, -17.5, -194, -17.5, -194, -18.5, -195, -18.5, -195, -19.5, -197, -19.5, -197, -20.5, -198, -20.5, -198, -21.5, -200, -21.5, -200, -22.5, -201, -22.5, -201, -23.5, -203, -23.5, -203, -24.5, -204, -24.5, -204, -25.5, -206, -25.5, -206, -26.5, -208, -26.5, -208, -27.5, -209, -27.5, -209, -28.5, -211, -28.5, -211, -29.5, -212, -29.5, -212, -30.5, -214, -30.5, -214, -31.5, -215, -31.5, -215, -32.5, -217, -32.5, -217, -33.5, -218, -33.5, -218, -34.5, -220, -34.5, -220, -35.5, -221, -35.5, -221, -36.5, -223, -36.5, -223, -37.5, -224, -37.5, -224, -38.5, -226, -38.5, -226, -39.5, -227, -39.5, -227, -40.5, -229, -40.5, -229, -41.5, -231, -41.5, -231, -42.5, -232, -42.5, -232, -43.5, -234, -43.5, -234, -44.5, -235, -44.5, -235, -45.5, -237, -45.5, -237, -46.5, -238, -46.5, -238, -47.5, -240, -47.5, -240, -48.5, -241, -48.5, -241, -49.5, -243, -49.5, -243, -50.5, -244, -50.5, -244, -51.5, -246, -51.5, -246, -52.5, -247, -52.5, -247, -53.5, -249, -53.5, -249, -54.5, -250, -54.5, -250, -55.5, -252, -55.5, -252, -56.5, -254, -56.5, -254, -57.5, -255, -57.5, -255, -58.5, -257, -58.5, -257, -59.5, -258, -59.5, -258, -60.5, -260, -60.5, -260, -61.5, -261, -61.5, -261, -62.5, -263, -62.5, -263, -63.5, -264, -63.5, -264, -64.5, -266, -64.5, -266, -65.5, -267, -65.5, -267, -66.5, -269, -66.5, -269, -67.5, -270, -67.5, -270, -68.5, -272, -68.5, -272, -69.5, -273, -69.5, -273, -70.5, -275, -70.5, -275, -71.5, -277, -71.5, -277, -72.5, -278, -72.5, -278, -73.5, -280, -73.5, -280, -74.5, -281, -74.5, -281, -75.5, -283, -75.5, -283, -76.5, -284, -76.5, -284, -77.5, -286, -77.5, -286, -78.5, -287, -78.5, -287, -79.5, -289, -79.5, -289, -80.5, -290, -80.5, -290, -81.5, -292, -81.5, -292, -82.5, -293, -82.5, -293, -83.5, -295, -83.5, -295, -84.5, -296, -84.5, -296, -85.5, -298, -85.5, -298, -86.5, -300, -86.5, -300, -87.5, -301, -87.5, -301, -88.5, -303, -88.5, -303, -89.5, -304, -89.5, -304, -90.5, -306, -90.5, -306, -91.5, -307, -91.5, -307, -92.5, -309, -92.5, -309, -93.5, -310, -93.5, -310, -94.5, -312, -94.5, -312, -95.5, -313, -95.5, -313, -96.5, -315, -96.5, -315, -97.5, -316, -97.5, -316, -98.5, -318, -98.5, -318, -99.5, -319, -99.5, -319, -100.5, -321, -100.5, -321, -101.5, -323, -101.5, -323, -102.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m3ha0"]
+polygon = PackedVector2Array(411, 59.5, 411, 102.5, 836, 102.5, 836, 59.5)
+
+[sub_resource type="Environment" id="Environment_w0h0a"]
+resource_local_to_scene = true
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.36
+glow_strength = 1.67
+glow_bloom = 1.0
+fog_mode = 1
+fog_density = 1.0
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_x2r63"]
+auto_exposure_enabled = true
+auto_exposure_min_exposure_value = -16.0
+
+[node name="Node2D" type="Node2D" unique_id=1212462845]
+
+[node name="Parallax2D" parent="." unique_id=246090450 instance=ExtResource("7_x7rwe")]
+z_index = -10
+scroll_offset = Vector2(-627, 2691)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1537237621]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1759953135]
+visible = false
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(1072.8125, 1367.9063)
+scale = Vector2(1095.625, 110.18748)
+mesh = SubResource("BoxMesh_ly3xq")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="StaticBody2D" unique_id=27800103]
+visible = false
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(-1103.1876, 1268)
+scale = Vector2(2749.625, 109.187485)
+mesh = SubResource("BoxMesh_ly3xq")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="StaticBody2D" unique_id=502219940]
+visible = false
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(-1222.9998, 1091.2802)
+rotation = 3.1415927
+scale = Vector2(1039.2501, 335.81464)
+mesh = SubResource("PrismMesh_p3a75")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="StaticBody2D" unique_id=1413828087]
+visible = false
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(-2036809.9, 201194.2)
+scale = Vector2(1080040.9, 29027.625)
+mesh = SubResource("BoxMesh_ly3xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1625971203]
+position = Vector2(-1103.5, 1268.5)
+shape = SubResource("RectangleShape2D_ly3xq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=169719502]
+position = Vector2(-771, 1214)
+shape = SubResource("ConvexPolygonShape2D_ly3xq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=958954533]
+position = Vector2(1097, 1369)
+shape = SubResource("RectangleShape2D_p3a75")
+
+[node name="Level costume" type="Sprite2D" parent="StaticBody2D" unique_id=1275392965]
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(-427.75, 1173.0386)
+scale = Vector2(2.4482656, 2.4394004)
+texture = ExtResource("1_w0h0a")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=1711622228]
+position = Vector2(-427.75, 1173.0386)
+scale = Vector2(2.4482656, 2.4394004)
+occluder = SubResource("OccluderPolygon2D_w0h0a")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="StaticBody2D" unique_id=615507612]
+position = Vector2(-427.75, 1173.0386)
+scale = Vector2(2.4482656, 2.4394004)
+occluder = SubResource("OccluderPolygon2D_m3ha0")
+
+[node name="Player" parent="." unique_id=987096105 instance=ExtResource("3_66sol")]
+position = Vector2(-2297, 981)
+
+[node name="Ball" parent="." unique_id=918375817 instance=ExtResource("4_2cg1f")]
+position = Vector2(-1728, 895)
+
+[node name="WorldEnvironment" parent="." unique_id=1816509399 instance=ExtResource("5_mf10c")]
+environment = SubResource("Environment_w0h0a")
+camera_attributes = SubResource("CameraAttributesPhysical_x2r63")
+
+[node name="Killzone" parent="." unique_id=733413109 instance=ExtResource("6_gq4aa")]
+position = Vector2(-864, 1607)
+
+[node name="Area2D" parent="." unique_id=1439473025 instance=ExtResource("9_lf2mf")]
+z_index = -3
+position = Vector2(1174, 1161)

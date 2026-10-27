@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b4e7mjxsst7ry"]
+
+[ext_resource type="Texture2D" uid="uid://dritoua02y001" path="res://Art/costume2 (1).svg" id="1_tt7e2"]
+[ext_resource type="Script" uid="uid://c88yojefxntgm" path="res://Code/navigation_agent_2d.gd" id="2_s7bn3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7bn3"]
+radius = 15.0
+height = 72.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=163088672]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+
+[node name="Costume2(1)" type="Sprite2D" parent="." unique_id=34180554]
+position = Vector2(9.536743e-07, -3.8146973e-06)
+rotation = -1.5707964
+scale = Vector2(0.749127, 0.7491269)
+texture = ExtResource("1_tt7e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837129580]
+shape = SubResource("CapsuleShape2D_s7bn3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=372852299]
+path_desired_distance = 1000.0
+navigation_layers = 7
+path_search_max_distance = 0.605
+avoidance_enabled = true
+max_speed = 25345.09
+avoidance_layers = 5
+avoidance_mask = 7
+script = ExtResource("2_s7bn3")

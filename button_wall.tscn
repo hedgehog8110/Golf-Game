@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://bgkqon2bvvujy"]
+
+[ext_resource type="Script" uid="uid://50aqbd8rq1th" path="res://button_wall.gd" id="1_fudx4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3xq"]
+size = Vector2(235, 1342)
+
+[sub_resource type="Animation" id="Animation_e44ie"]
+resource_name = "Appear"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wall 1/MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 0), Color(0.14901961, 1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall 1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.61),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_b1iys"]
+resource_name = "Dissapear"
+length = 0.96666664
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wall 1/MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.100000024, 0.33333337),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 1), Color(0.14901961, 1, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall 1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_1a5bh"]
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wall 1/MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall 1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e44ie"]
+_data = {
+&"Appear": SubResource("Animation_e44ie"),
+&"Dissapear": SubResource("Animation_b1iys"),
+&"RESET": SubResource("Animation_1a5bh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpbrg"]
+size = Vector2(220, 1317)
+
+[node name="Area2D" type="Area2D" unique_id=1755838134]
+script = ExtResource("1_fudx4")
+
+[node name="Wall 1" type="StaticBody2D" parent="." unique_id=2025657675]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall 1" unique_id=136728035]
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(1.9550896, -23.540833)
+rotation = -3.1415925
+scale = Vector2(237.60329, -1340.0157)
+mesh = SubResource("BoxMesh_ly3xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 1" unique_id=316362587]
+position = Vector2(2.5, -22)
+shape = SubResource("RectangleShape2D_ly3xq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=834592070]
+libraries/ = SubResource("AnimationLibrary_e44ie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=79531132]
+position = Vector2(2, -18.5)
+shape = SubResource("RectangleShape2D_kpbrg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

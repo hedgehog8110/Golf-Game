@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://d2b1egllo4ogs"]
+
+[ext_resource type="Script" uid="uid://btyq00clvrvcg" path="res://switch.gd" id="1_3u18a"]
+[ext_resource type="Texture2D" uid="uid://luc2oeqe3oeo" path="res://Art/Switch toppp.png" id="2_8xb4j"]
+[ext_resource type="Texture2D" uid="uid://dtfx4fljm0w1j" path="res://Art/Group_normal.png" id="3_eqp7c"]
+[ext_resource type="Texture2D" uid="uid://snhw0k4h7rnm" path="res://Art/Group_specular.png" id="4_svf6b"]
+[ext_resource type="Texture2D" uid="uid://ph07bqydxu36" path="res://Art/Light_game.png" id="5_hvhsp"]
+[ext_resource type="Texture2D" uid="uid://wv2yfe1ssfpd" path="res://Art/Curve.png" id="6_ai7ji"]
+[ext_resource type="Texture2D" uid="uid://wuynf6q3w41b" path="res://Art/Curve2_normal.png" id="7_3hbqr"]
+[ext_resource type="Texture2D" uid="uid://llh4sc7s6sh5" path="res://Art/Ball3.png" id="8_eqp7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxrld"]
+size = Vector2(114, 101)
+
+[sub_resource type="Animation" id="Animation_vpalb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwitchToppp:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+
+[sub_resource type="Animation" id="Animation_jqam5"]
+resource_name = "Switch to left"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwitchToppp:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.7853982, -0.7853982]
+}
+
+[sub_resource type="Animation" id="Animation_3u18a"]
+resource_name = "Switch to right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwitchToppp:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.7853982, 0.7853982]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jqam5"]
+_data = {
+&"RESET": SubResource("Animation_vpalb"),
+&"Switch to left": SubResource("Animation_jqam5"),
+&"Switch to right": SubResource("Animation_3u18a")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h1s5c"]
+diffuse_texture = ExtResource("2_8xb4j")
+normal_texture = ExtResource("3_eqp7c")
+specular_texture = ExtResource("4_svf6b")
+specular_shininess = 0.53
+texture_repeat = 3
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1isw4"]
+diffuse_texture = ExtResource("6_ai7ji")
+normal_texture = ExtResource("7_3hbqr")
+specular_shininess = 0.42
+
+[node name="Area2D" type="Area2D" unique_id=153900296]
+script = ExtResource("1_3u18a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026789465]
+position = Vector2(0, -72.5)
+shape = SubResource("RectangleShape2D_nxrld")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1935912415]
+libraries/ = SubResource("AnimationLibrary_jqam5")
+
+[node name="SwitchToppp" type="Sprite2D" parent="." unique_id=2069349235]
+position = Vector2(-0.40999985, -20.59497)
+rotation = 0.7853982
+scale = Vector2(0.145, 0.145)
+texture = SubResource("CanvasTexture_h1s5c")
+
+[node name="PointLight2D" type="PointLight2D" parent="SwitchToppp" unique_id=1017696782]
+color = Color(1, 0.6745098, 0.40784314, 1)
+energy = 1.38
+texture = ExtResource("5_hvhsp")
+offset = Vector2(0, -400)
+texture_scale = 2.0
+height = 900.0
+
+[node name="Curve" type="Sprite2D" parent="." unique_id=492615661]
+position = Vector2(0.59000015, -32.595085)
+scale = Vector2(0.145, 0.145)
+texture = SubResource("CanvasTexture_1isw4")
+
+[node name="Shadow" type="Sprite2D" parent="Curve" unique_id=2024877432]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(-277.3881, 91.994736)
+scale = Vector2(0.21169405, 0.21169414)
+texture = ExtResource("5_hvhsp")
+
+[node name="Shadow2" type="Sprite2D" parent="Curve" unique_id=551016816]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(264.89648, 86.86279)
+scale = Vector2(0.21787405, 0.2178741)
+texture = ExtResource("5_hvhsp")
+
+[node name="Playericon" type="Sprite2D" parent="Curve" unique_id=717235650]
+position = Vector2(264.89658, 86.86267)
+scale = Vector2(0.2947243, 0.2947244)
+texture = ExtResource("8_eqp7c")
+
+[node name="Ballicon" type="Sprite2D" parent="Curve" unique_id=305625511]
+modulate = Color(0, 0.5568628, 1, 1)
+position = Vector2(-279.93103, 93.75922)
+scale = Vector2(0.2947243, 0.2947244)
+texture = ExtResource("8_eqp7c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

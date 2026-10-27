@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://i2yx024b3je4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j43ig"]
+
+[sub_resource type="Gradient" id="Gradient_j43ig"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.84375, 1)
+colors = PackedColorArray(0, 0.5500002, 1, 1, 1, 0.36666667, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q3hnq"]
+gradient = SubResource("Gradient_j43ig")
+
+[node name="Parallax2D" type="Parallax2D" unique_id=246090450]
+scale = Vector2(0.25, 0.25)
+scroll_scale = Vector2(14.48, 14.48)
+scroll_offset = Vector2(-1914, 58)
+ignore_camera_scroll = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=777012500]
+modulate = Color(0.61, 0.61, 0.61, 1)
+position = Vector2(7616, -7489.1006)
+rotation = -1.5707964
+scale = Vector2(15130.596, 85996.45)
+mesh = SubResource("BoxMesh_j43ig")
+texture = SubResource("GradientTexture1D_q3hnq")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dgi0wyux5dnre"]
+
+[ext_resource type="Texture2D" uid="uid://bubab45fqy3bw" path="res://Art/New Piskel-1.png (4).png" id="1_c6gwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dftf"]
+size = Vector2(574, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbcq"]
+size = Vector2(276.5, 94)
+
+[node name="Node2D" type="Node2D" unique_id=999261632]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1325022713]
+position = Vector2(101, 244)
+
+[node name="Level sprite" type="Sprite2D" parent="StaticBody2D" unique_id=1195491453]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(4.088911, 4.088911, 4.088911, 1)
+visibility_layer = 513
+position = Vector2(-100, -246)
+scale = Vector2(0.09495117, 0.09495117)
+texture = ExtResource("1_c6gwx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=862017161]
+position = Vector2(-100, -246)
+scale = Vector2(0.09495117, 0.09495117)
+polygon = PackedVector2Array(6066.2764, -2043.1555, 6066.2764, 5592.3486, -6129.467, 5560.7534, -6108.4033, -2074.7507, -4802.4688, -2074.7507, -4813.0005, 1442.847, 4928.8496, 1442.847, 4939.3813, -2043.1555)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1326696869]
+position = Vector2(-111, -314)
+shape = SubResource("RectangleShape2D_2dftf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=934132532]
+position = Vector2(-363.25, -554)
+shape = SubResource("RectangleShape2D_bcbcq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1259215901]
+position = Vector2(184, -555)
+shape = SubResource("RectangleShape2D_bcbcq")

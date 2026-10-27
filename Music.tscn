@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4r0ojv1id5mf"]
+
+[ext_resource type="AudioStream" uid="uid://jyoqpbyfvgc7" path="res://Sound/serhii_kliets-spaceship-arcade-shooter-game-background-soundtrack-318508.mp3" id="1_dsrwk"]
+[ext_resource type="AudioStream" uid="uid://61joiua4papf" path="res://Sound/mondamusic-retro-arcade-game-music-512837.mp3" id="2_dfqnt"]
+[ext_resource type="Script" uid="uid://w22c8epmr1y2" path="res://Code/audio_stream_player.gd" id="3_lbmby"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jl3d8"]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("1_dsrwk")
+stream_1 = ExtResource("2_dfqnt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=887829016]
+stream = SubResource("AudioStreamPlaylist_jl3d8")
+autoplay = true
+script = ExtResource("3_lbmby")

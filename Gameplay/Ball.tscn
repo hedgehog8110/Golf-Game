@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://drstowvykwgb1"]
+
+[ext_resource type="Script" uid="uid://c6pw2lt1iv88j" path="res://Code/ball.gd" id="1_hm54e"]
+[ext_resource type="Texture2D" uid="uid://llh4sc7s6sh5" path="res://Art/Ball3.png" id="2_mkmm4"]
+[ext_resource type="Texture2D" uid="uid://bipmsojs7fdha" path="res://Art/Circle2_specular.png" id="3_0hinw"]
+[ext_resource type="Texture2D" uid="uid://ph07bqydxu36" path="res://Art/Light_game.png" id="4_o8jgd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vnwyg"]
+rough = true
+bounce = 0.68
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwfoo"]
+radius = 70.00714
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28ygt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mxpsk"]
+diffuse_texture = ExtResource("2_mkmm4")
+normal_texture = ExtResource("3_0hinw")
+specular_texture = ExtResource("3_0hinw")
+
+[node name="Ball" type="RigidBody2D" unique_id=918375817 groups=["Ball", "RigidBody"]]
+position = Vector2(-2118, -467)
+collision_layer = 6
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_vnwyg")
+can_sleep = false
+script = ExtResource("1_hm54e")
+
+[node name="Ball" type="CollisionShape2D" parent="." unique_id=1842208054 groups=["Ball"]]
+shape = SubResource("CircleShape2D_bwfoo")
+
+[node name="Ball sprite" type="Sprite2D" parent="." unique_id=2067773748]
+modulate = Color(0, 0.5568628, 1, 1)
+material = SubResource("ShaderMaterial_28ygt")
+position = Vector2(1.9073486e-06, 3.8146973e-06)
+scale = Vector2(0.29487175, 0.2948718)
+texture = SubResource("CanvasTexture_mxpsk")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2102211348]
+z_index = 200
+position = Vector2(0, -1.3113022e-06)
+scale = Vector2(48.359676, 45.379642)
+color = Color(0, 0.52156866, 1, 1)
+energy = 1.5
+range_z_min = 0
+range_z_max = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 64.0
+texture = ExtResource("4_o8jgd")
+texture_scale = 0.01
