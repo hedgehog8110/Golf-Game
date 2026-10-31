@@ -52,7 +52,7 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	if play_once2 == 1:
-		if Global.time <= 1.5 * 60:
+		if Global.time <= 1.7 * 60:
 			menu_anims.play("S")
 		elif Global.time <= 2 * 60:
 			menu_anims.play("A")
@@ -60,7 +60,7 @@ func _on_timer_2_timeout() -> void:
 			menu_anims.play("B")
 		elif Global.time <= 5 * 60:
 			menu_anims.play("C")
-		elif Global.time >= 7 * 60:
+		else:
 			menu_anims.play("D")
 		play_once2 = 0
 		
