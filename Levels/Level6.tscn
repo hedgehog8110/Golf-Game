@@ -37,7 +37,7 @@ polygon = PackedVector2Array(-1017.5, -141, -1017.5, 380, -381.5, 380, -381.5, 2
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wx7q2"]
 polygon = PackedVector2Array(-321.5, 232, -321.5, 331, 164.09998, 331, 621.5, 497.40002, 621.5, 498.7, 624.80005, 499.3, 656.9, 411, 659.69995, 411, 657.5, 406.5, 657.5, 404.59998, 185.5, 233.5, 185.5, 232)
 
-[sub_resource type="Environment" id="Environment_wx7q2"]
+[sub_resource type="Environment" id="Environment_663ia"]
 resource_local_to_scene = true
 background_mode = 3
 glow_enabled = true
@@ -151,7 +151,7 @@ position = Vector2(-2305, -142)
 texture = ExtResource("3_hwj8o")
 
 [node name="WorldEnvironment" parent="." unique_id=1816509399 instance=ExtResource("5_vm5lh")]
-environment = SubResource("Environment_wx7q2")
+environment = SubResource("Environment_663ia")
 
 [node name="Killzone" parent="." unique_id=733413109 instance=ExtResource("6_s8q8g")]
 position = Vector2(-964, 4088)

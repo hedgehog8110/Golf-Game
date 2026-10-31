@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		menu_anims.play("fadein2")
 		win = true
 		Global.win = false
-		
+		Global.Started = 0
 		
 		
 	else:
@@ -52,13 +52,13 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	if play_once2 == 1:
-		if Global.time <= 1.7 * 60:
+		if Global.time <= (1.5 * 60):
 			menu_anims.play("S")
-		elif Global.time <= 2 * 60:
+		elif Global.time <= (2 * 60):
 			menu_anims.play("A")
-		elif Global.time <= 3 * 60:
+		elif Global.time <= (3 * 60):
 			menu_anims.play("B")
-		elif Global.time <= 5 * 60:
+		elif Global.time <= (5 * 60):
 			menu_anims.play("C")
 		else:
 			menu_anims.play("D")
