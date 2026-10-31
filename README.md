@@ -31,7 +31,7 @@
   2. It should download
   3. Locate the file in finder and double click it, that should create a folder for it
   4. Double click the folder
-  5. That should launch the game, but if not, follow next insructions
+  5. Then launch the game by double clicking it, but if doesn't, follow next instructions
   6. Open settings and go to the privacy and security tab
   7. Scroll to the bottom of the privacy and security tab there should be text saying that the file was blocked by your mac
   8. Press open anyway
