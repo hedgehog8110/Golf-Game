@@ -1,5 +1,5 @@
 # **Golf?**
-Golf? is a puzzle platformer game about kicking a ball around to a flag to complete levels.
+## Golf? is a puzzle platformer game about kicking a ball around to a flag to complete levels.
 ![demo](demo_video.png)
 
 ## [Play Golf? on itch.io](https://hedgehog8110.itch.io/golf)
