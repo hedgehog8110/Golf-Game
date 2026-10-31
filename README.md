@@ -12,7 +12,7 @@
 *Gameplay:*
   - Use the control keys to maneuver the ball to the flag at the end of the level.
   - Buttons: Touch the button with the ball or the player to remove parts of the level, dotted wires indicate a connection to the dissapearing wall.
-  - Teleporters: The teleporters can only teleport either the ball or the player, depending on the switch position. For example: when the dots on the teleporters are set to white, it will only teleport the player, but when the dots are set to blue, it will only teleport the ball.
+  - Teleporters: The teleporters can only teleport either the ball or the player, depending on the switch position. For example: when the dots on the teleporters are set to white, it will only teleport the player, but when the dots are set to blue, it will only teleport the ball. When the player or ball has entered, it will have a short cooldown for teleporting back.
   - Switches: Touch switch with the player or the ball to toggle its mode. When the dot in the middle is white, it will set the teleporters to only teleport the player, but when the dot is blue, it sets the teleporters to only teleport the ball.
 
 *Features:*
