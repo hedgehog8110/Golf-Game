@@ -28,3 +28,8 @@ Golf? is a puzzle platformer game about kicking a ball around to a flag to compl
 *Technical:*
   - The teleporters:
    - How they work: Both teleporters set their position when the level starts, and they set their animation depending on what the switch is set to. When an object like the ball or player enter the teleporter (it uses a on_body_entered function) it sets a global variable to "Player" or "Ball" depending on which has entered (if the switch is set to the object that enters). In both the player and ball code it is detecting if the global variable is set to itself. If it is, it will check which teleporter is transmitting the variable, and set its position to the opposite teleporter.
+
+*Credits and thanks*
+  - Pixabay for music and sounds
+  - Friends, family and school teachers for helping out with some bugs
+ 
