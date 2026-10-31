@@ -11,7 +11,7 @@
 
 *Gameplay:*
   - Use the control keys to maneuver the ball to the flag at the end of the level.
-  - Buttons: Touch the button with the ball or the player to remove parts of the level, you will see which parts of the level because it has wires connecting from the button to parts of the level.
+  - Buttons: Touch the button with the ball or the player to remove parts of the level, you will see which parts of the level because it has dotted wires connecting from the button to parts of the level.
   - Teleporters: The teleporters can only teleport the ball, or the player at once, depending on the switch position. For example: when the dots on the teleporters are set to white, it will only teleport the player, but when the dots are set to blue, it will only teleport the ball.
   - Switches: Touch switch with the player or the ball to toggle its mode. When the dot in the middle is white, it will set the teleporters to only teleport the player, but when the dot is blue, it set the teleporters to only teleport the ball.
 
