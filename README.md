@@ -29,4 +29,6 @@
 *Credits and thanks*
   - Pixabay for music and sounds
   - Friends, family and school teachers for helping out with some bugs
+  - YouTube Godot tutorials
+ 
  
