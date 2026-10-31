@@ -1,9 +1,12 @@
 extends Area2D
 
 var detected
+var cooldown = 0
 @export var par : GPUParticles2D
 @onready var timer: Panel = get_tree().get_first_node_in_group("Timer")
 @onready var teleporter_anim = $AnimationPlayer
+@onready var teleport := $AudioStreamPlayer
+@onready var cooldown_time := $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.teleporter2 = null
@@ -20,28 +23,41 @@ func _process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	if Global.switch_pos == 1:
-		if body.name == "Player":
-			Global.teleporter2 = body.name
-			print("PLAYER")
-			Global.teleport_objects = 1
-			if Global.body_teleported == 2:
-				Global.body_teleported = 1
+		if cooldown == 0:
+			if body.name == "Player":
+				Global.teleporter2 = body.name
+				print("PLAYER")
+				cooldown = 1
+				teleport.play()
+				cooldown_time.start()
+				Global.teleport_objects = 1
+				if Global.body_teleported == 2:
+					Global.body_teleported = 1
+				
 
 	if Global.switch_pos == 0:
-		if body.name == "Ball":
-			Global.teleporter2 = body.name
-			print("BALL")
-			Global.teleport_objects = 1
-			if Global.body_teleported == 2:
-				Global.body_teleported = 1
+		if cooldown == 0:
+			if body.name == "Ball":
+				Global.teleporter2 = body.name
+				print("BALL")
+				cooldown = 1
+				cooldown_time.start()
+				teleport.play()
+				Global.teleport_objects = 1
+				if Global.body_teleported == 2:
+					Global.body_teleported = 1
+			
 		
-		
-	
 		
 			
 
 func _on_body_exited(body: Node2D) -> void:
 	Global.teleporter2 = null
 	Global.body_teleported = 2
+	
 
 	
+
+
+func _on_timer_timeout() -> void:
+	cooldown = 0

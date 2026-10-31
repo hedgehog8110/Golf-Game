@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_reset"):
 		
 
-		timer.reset_timer()
+		#timer.reset_timer()
 		timer.start()
 		
 

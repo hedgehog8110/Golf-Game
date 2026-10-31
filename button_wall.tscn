@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgkqon2bvvujy"]
 
 [ext_resource type="Script" uid="uid://50aqbd8rq1th" path="res://button_wall.gd" id="1_fudx4"]
+[ext_resource type="Texture2D" uid="uid://db2jcklxh673g" path="res://Art/Wall.png" id="2_1a5bh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
 
@@ -34,6 +35,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wall 1/Wall:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 0), Color(0.14901961, 1, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_b1iys"]
 resource_name = "Dissapear"
@@ -62,6 +75,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wall 1/Wall:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 1), Color(0.14901961, 1, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1a5bh"]
 length = 0.6333333
@@ -89,6 +114,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wall 1/Wall:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14901961, 1, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e44ie"]
 _data = {
@@ -107,7 +144,14 @@ script = ExtResource("1_fudx4")
 collision_layer = 3
 collision_mask = 3
 
+[node name="Wall" type="Sprite2D" parent="Wall 1" unique_id=736088262]
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(1.0000038, -24.64002)
+scale = Vector2(2.44, 2.535)
+texture = ExtResource("2_1a5bh")
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Wall 1" unique_id=136728035]
+visible = false
 modulate = Color(0.14901961, 1, 0, 1)
 position = Vector2(1.9550896, -23.540833)
 rotation = -3.1415925

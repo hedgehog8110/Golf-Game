@@ -12,25 +12,24 @@ var Transition_playing = 0
 func _on_body_entered(body):
 	
 	if body.is_in_group("Ball"):
-		is_instance_valid(timer.stop())
-		$CanvasLayer3/Panel/Timer2.start()
-		par.emitting = true
-		$CanvasLayer3/Panel/Timer.start()
-		Global.in_flag = 1
-		$Win.play()
+		if Global.level == 6:
+			Global.win = true
+			$Win.play()
+		elif not Global.in_flag == 1:
+			Global.in_flag = 1
+			is_instance_valid(timer.stop())
+			$CanvasLayer3/Panel/Timer2.start()
+			par.emitting = true
+			$CanvasLayer3/Panel/Timer.start()
+			$Win.play()
 		
 		
 func _process(delta) -> void:
-	if Input.is_action_just_pressed("next"):
-		Transition.play("Transition_fade_out")
-		var current_scene_file = get_tree().current_scene.scene_file_path
-		var next_level_number = current_scene_file.to_int() + 1
-		var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
-		get_tree().change_scene_to_file(next_level_path)
-		Global.level = next_level_number -1
+	pass
 	#print(Global.level)
 	
 func _ready() -> void:
+
 	var current_scene_file = get_tree().current_scene.scene_file_path
 	var next_level_number = current_scene_file.to_int() + 1
 	var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
@@ -50,13 +49,16 @@ func respawn_ball(b):
 
 
 func _on_timer_timeout() -> void:
+		
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		var next_level_number = current_scene_file.to_int() + 1
 		var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
 		get_tree().change_scene_to_file(next_level_path)
 		Transition.play("Transition_fade_out")
 		Global.level = next_level_number -1
+		
 
 
 func _on_timer_2_timeout() -> void:
+	
 	Transition.play("Transition_fade_in")

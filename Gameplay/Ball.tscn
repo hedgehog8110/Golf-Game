@@ -45,6 +45,7 @@ color = Color(0, 0.52156866, 1, 1)
 energy = 1.5
 range_z_min = 0
 range_z_max = 0
+range_item_cull_mask = 3
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter_smooth = 64.0
 texture = ExtResource("4_o8jgd")

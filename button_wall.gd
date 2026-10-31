@@ -7,13 +7,13 @@ var playing_anim = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
-	pass
+	if playing_anim == 0 :
+		anim_wall.play("RESET")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if playing_anim == 0 :
-		anim_wall.play("RESET")
+	
 	if Global.button1 == 1:
 		if play_anim == 0:
 			anim_wall.play("Dissapear")

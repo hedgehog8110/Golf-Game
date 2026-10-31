@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cchsdr2k6d2o0"]
 
 [ext_resource type="PackedScene" uid="uid://d0j8vk3r541er" path="res://Teleporter1.tscn" id="1_kb5ut"]
+[ext_resource type="Texture2D" uid="uid://dgwgl0lk7svh8" path="res://Art/level 5.png" id="2_cg4ff"]
 [ext_resource type="PackedScene" uid="uid://cu371x3ms0pfg" path="res://Teleporter2.tscn" id="2_uwj6k"]
 [ext_resource type="PackedScene" uid="uid://d2b1egllo4ogs" path="res://Switch.tscn" id="3_nijbd"]
 [ext_resource type="PackedScene" uid="uid://b1cngxugxpxjy" path="res://Gameplay/player.tscn" id="3_w1sat"]
@@ -15,18 +16,21 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o87it"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ly3xq"]
-polygon = PackedVector2Array(0.49987954, 0.5035114, 0.49987954, -0.49711418, -0.50027746, -0.5029659, -0.50027746, 0.49765968)
-
 [sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3xq"]
-size = Vector2(1257, 171)
+size = Vector2(1253, 167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3a75"]
-size = Vector2(956, 190)
+size = Vector2(951, 196)
 
-[sub_resource type="Environment" id="Environment_nijbd"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cg4ff"]
+polygon = PackedVector2Array(118.5, -500, 118.5, -358, 806.5, -358, 806.5, -500)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rss6v"]
+polygon = PackedVector2Array(-806.5, 379, -806.5, 500, 98.5, 500, 98.5, 379)
+
+[sub_resource type="Environment" id="Environment_cg4ff"]
 resource_local_to_scene = true
 background_mode = 3
 glow_enabled = true
@@ -49,10 +53,17 @@ position = Vector2(0, 1800)
 collision_layer = 3
 collision_mask = 3
 
+[node name="Level5" type="Sprite2D" parent="StaticBody2D" unique_id=824909584]
+modulate = Color(0.14901961, 1, 0, 1)
+position = Vector2(-15.874968, 1244.8181)
+scale = Vector2(1.383602, 1.3836021)
+texture = ExtResource("2_cg4ff")
+
 [node name="Switch" parent="StaticBody2D" unique_id=153900296 instance=ExtResource("3_nijbd")]
-position = Vector2(270, 556)
+position = Vector2(270, 551)
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="StaticBody2D" unique_id=2048862357]
+visible = false
 modulate = Color(0.14901961, 1, 0, 1)
 position = Vector2(628.7236, 650.9853)
 rotation = 3.1415927
@@ -60,35 +71,38 @@ scale = Vector2(955.61993, 189.59082)
 mesh = SubResource("QuadMesh_ly3xq")
 texture = SubResource("CanvasTexture_o87it")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/MeshInstance2D2" unique_id=89419946]
-position = Vector2(0, 1.9073486e-06)
-occluder = SubResource("OccluderPolygon2D_ly3xq")
-
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1326905616]
+visible = false
 modulate = Color(0.14901961, 1, 0, 1)
 position = Vector2(-501.28778, 1853.0466)
 scale = Vector2(-1260.0781, -170.89302)
 mesh = SubResource("BoxMesh_ly3xq")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/MeshInstance2D" unique_id=553445105]
-position = Vector2(0, 1.9073486e-06)
-occluder = SubResource("OccluderPolygon2D_ly3xq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=272161328]
-position = Vector2(-502.5, 1853.5)
-shape = SubResource("RectangleShape2D_ly3xq")
 
 [node name="Teleporter1" parent="StaticBody2D" unique_id=703332690 instance=ExtResource("1_kb5ut")]
 position = Vector2(-38, 1703)
 scale = Vector2(1.03, 1.03)
 
 [node name="Teleporter2" parent="StaticBody2D" unique_id=653800974 instance=ExtResource("2_uwj6k")]
-position = Vector2(639, 489)
+position = Vector2(639, 486)
 scale = Vector2(1.03, 1.03)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=272161328]
+position = Vector2(-505.5, 1852.5)
+shape = SubResource("RectangleShape2D_ly3xq")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1030451842]
-position = Vector2(629, 651)
+position = Vector2(624.5, 651)
 shape = SubResource("RectangleShape2D_p3a75")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=1565457863]
+position = Vector2(-15.874968, 1244.8181)
+scale = Vector2(1.383602, 1.3836021)
+occluder = SubResource("OccluderPolygon2D_cg4ff")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="StaticBody2D" unique_id=1498053675]
+position = Vector2(-15.874968, 1244.8181)
+scale = Vector2(1.383602, 1.3836021)
+occluder = SubResource("OccluderPolygon2D_rss6v")
 
 [node name="Player" parent="." unique_id=987096105 instance=ExtResource("3_w1sat")]
 position = Vector2(-838, 3310)
@@ -102,10 +116,10 @@ position = Vector2(-2305, -142)
 texture = ExtResource("5_cg4ff")
 
 [node name="WorldEnvironment" parent="." unique_id=1816509399 instance=ExtResource("7_x1euj")]
-environment = SubResource("Environment_nijbd")
+environment = SubResource("Environment_cg4ff")
 
 [node name="Killzone" parent="." unique_id=733413109 instance=ExtResource("8_am2wo")]
 position = Vector2(-964, 3968)
 
 [node name="Goal" parent="." unique_id=1439473025 instance=ExtResource("9_888os")]
-position = Vector2(1036, 2201)
+position = Vector2(1036, 2198)

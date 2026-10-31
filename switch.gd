@@ -3,6 +3,7 @@ extends Area2D
 var switch_pos = 1
 var wait_until_exit = 0
 @onready var switch_anim = $AnimationPlayer
+@onready var switch := $AudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +30,9 @@ func _on_body_entered(body: Node2D) -> void:
 			Global.switch_pos = 0
 			print(Global.switch_pos)
 			switch_anim.play("Switch to left")
+			switch.play()
 	else:
 		switch_anim.play("Switch to right")
 		Global.switch_pos = 1
 		print(Global.switch_pos)
+		switch.play()

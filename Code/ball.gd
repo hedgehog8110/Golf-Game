@@ -14,9 +14,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	Global.ball_pos = position
+	if Global.Started == 0:
+		freeze = true
+	else:
+		freeze = false
 	
 	if Input.is_action_just_pressed("ui_reset"):
-		respawn_ball()
+		if Global.in_flag == 0:
+			respawn_ball()
 	var current_scene_file = get_tree().current_scene.scene_file_path
 	var level_number = current_scene_file.to_int()
 	if level_number == 1:

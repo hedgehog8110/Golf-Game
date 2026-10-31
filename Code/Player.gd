@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim_player := $AnimationPlayer
+@export var par := GPUParticles2D
 
 const jump_height: float = -550.0
 const gravity: float = 14.5
@@ -25,6 +26,8 @@ const JUMP_VELOCITY = -500.0
 
 
 
+	
+	
 func respawn():
 	
 	self.global_position = Vector2(x_spawn, y_spawn)
@@ -34,39 +37,39 @@ func respawn():
 	anim_player.play("RESET")
 	
 func _physics_process(delta: float) -> void:
-	
+	if Global.Started == 1 or Global.level >= 2:
+		var x_input: float = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		var _velocity_weight: float = delta * (acceleration if x_input else friction)
+		velocity.x = lerp(velocity.x, x_input * speed, _velocity_weight)
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	var x_input: float = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	var _velocity_weight: float = delta * (acceleration if x_input else friction)
-	velocity.x = lerp(velocity.x, x_input * speed, _velocity_weight)
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_up") and is_on_floor():
+			velocity.y = jump_height
+			#par.emitting = true
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = jump_height
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	if is_on_floor():
-		jumps_done = 0
-		anim_player.play("Idle")
-	else:
-		if jumps_done == 0:
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		
+		if is_on_floor():
+			jumps_done = 0
+			anim_player.play("Idle")
+		else:
+			if jumps_done == 0:
+				jumps_done += 1
+				
+		if Input.is_action_just_pressed("ui_up") and jumps_done < MAX_JUMPS:
+			velocity.y = jump_height
 			jumps_done += 1
+			velocity.y += gravity
 			
-	if Input.is_action_just_pressed("ui_up") and jumps_done < MAX_JUMPS:
-		velocity.y = jump_height
-		jumps_done += 1
-		velocity.y += gravity
-		
-		
-	if jumps_done > 1:
-		anim_player.play("No_jump")
-		
+			
+		if jumps_done > 1:
+			anim_player.play("No_jump")
+			
 	
 	
 	move_and_slide()
@@ -77,7 +80,8 @@ func _physics_process(delta: float) -> void:
 
 		
 	if Input.is_action_just_pressed("ui_reset"):
-		respawn()
+		if Global.in_flag == 0:
+			respawn()
 
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -121,9 +125,11 @@ func _process(_delta) -> void:
 			if Global.teleporter1 == "Player":
 				Global.body_teleported = 0
 				position = Global.teleporter2_pos
+				
 			if Global.teleporter2 == "Player":
 				position = Global.teleporter1_pos
 				Global.body_teleported = 0
+				
 	if Global.player_or_ball == 2:
 		respawn()
 					

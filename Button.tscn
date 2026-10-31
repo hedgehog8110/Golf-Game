@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c0seexf8wnhyj" path="res://Art/Rounded Rectangle.png" id="8_1bi7n"]
 [ext_resource type="Script" uid="uid://dhljp43fluuep" path="res://wire_1.gd" id="8_esgyd"]
 [ext_resource type="Script" uid="uid://cw5pcmv5axdbt" path="res://wire_2.gd" id="10_ql8su"]
+[ext_resource type="Texture2D" uid="uid://bnscoje6f5nt6" path="res://Art/Wire2.png" id="11_rf4pk"]
+[ext_resource type="AudioStream" uid="uid://bsps3y53bd4b2" path="res://Sound/dragon-studio-light-switch-382712.mp3" id="12_tgn77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwy4x"]
 size = Vector2(88, 41)
@@ -124,18 +126,30 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/path = NodePath("Wire1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.07520978, 0.07520978, 0.07520978, 1)]
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_866si"]
 resource_name = "Wire off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wire1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_0ywks"]
 resource_name = "wire_turn_off"
@@ -143,14 +157,14 @@ length = 1.1333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/path = NodePath("Wire1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.56666666),
-"transitions": PackedFloat32Array(-2, 1),
+"times": PackedFloat32Array(0, 0.61),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.07520978, 0.07520978, 0.07520978, 1)]
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jxf8g"]
@@ -159,14 +173,14 @@ length = 1.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RoundedRectangle:modulate")
+tracks/0/path = NodePath("Wire1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.001, 0.6),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0, 0.43),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.07520978, 0.07520978, 0.07520978, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esgyd"]
@@ -177,7 +191,73 @@ _data = {
 &"wire_turn_on": SubResource("Animation_jxf8g")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_ly3xq"]
+[sub_resource type="Animation" id="Animation_esgyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wire2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tgn77"]
+resource_name = "Wire off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wire2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ql8su"]
+resource_name = "Wire_turn_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wire2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.64),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rf4pk"]
+resource_name = "wire_turn_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wire2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgn77"]
+_data = {
+&"RESET": SubResource("Animation_esgyd"),
+&"Wire off": SubResource("Animation_tgn77"),
+&"Wire_turn_off": SubResource("Animation_ql8su"),
+&"wire_turn_on": SubResource("Animation_rf4pk")
+}
 
 [node name="Button" type="Area2D" unique_id=660098256]
 collision_layer = 3
@@ -221,29 +301,30 @@ energy = 1.22
 texture = ExtResource("6_ql8su")
 texture_scale = 0.25
 
-[node name="Wire1" type="Node2D" parent="." unique_id=858113327]
-script = ExtResource("8_esgyd")
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=375320424]
+libraries/ = SubResource("AnimationLibrary_esgyd")
 
-[node name="RoundedRectangle" type="Sprite2D" parent="Wire1" unique_id=272764766]
-modulate = Color(0.07520978, 0.07520978, 0.07520978, 1)
+[node name="Wire1" type="Sprite2D" parent="." unique_id=272764766]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(1065.789, 116)
 scale = Vector2(1.2852005, 1.3125007)
 texture = ExtResource("8_1bi7n")
 region_rect = Rect2(0, 0, 1681, 128)
+script = ExtResource("8_esgyd")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Wire1" unique_id=1340910470]
-libraries/ = SubResource("AnimationLibrary_esgyd")
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." unique_id=1167930799]
+libraries/ = SubResource("AnimationLibrary_tgn77")
 
-[node name="Wire2" type="Node2D" parent="." unique_id=569300238]
+[node name="Wire2" type="Sprite2D" parent="." unique_id=789985699]
+position = Vector2(-280.54266, -25.265244)
+rotation = -0.34906584
+scale = Vector2(0.5304469, 0.5304468)
+texture = ExtResource("11_rf4pk")
 script = ExtResource("10_ql8su")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Wire2" unique_id=375320424]
-libraries/ = SubResource("AnimationLibrary_esgyd")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wire2" unique_id=1973965984]
-position = Vector2(191.25, 64.75)
-scale = Vector2(383.5, 130.5)
-mesh = SubResource("BoxMesh_ly3xq")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=298665551]
+stream = ExtResource("12_tgn77")
+pitch_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

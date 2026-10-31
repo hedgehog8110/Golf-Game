@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 Global="*uid://ragnqc6444j5"
 Music="*uid://b4r0ojv1id5mf"
-NextLevel="*uid://voqd5htjgqww"
+NextLevel="uid://voqd5htjgqww"
+Menu="*uid://cmb7q7tcmt75w"
 
 [display]
 
