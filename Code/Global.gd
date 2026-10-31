@@ -38,9 +38,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if in_flag == 0 and Started == 1:
 		time += delta
-	#print(time)
-	if in_flag == 0:
-		if Input.is_action_just_pressed("ui_reset"):
-			if minutes >= 0:
-				time = time - minutes
-				time = time - seconds
+	print(time)
+	#if in_flag == 0:
+	#	if Input.is_action_just_pressed("ui_reset"):
+	#		if minutes >= 0:
+	#			time = time - minutes
+	#			time = time - seconds

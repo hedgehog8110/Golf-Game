@@ -35,10 +35,10 @@ func _process(delta) -> void:
 			M = minutes
 			S = seconds
 			MS = msec
-			if Input.is_action_just_pressed("ui_reset"):
-				if Global.in_flag == 0:
-					reset_timer()
-					start()
+			#if Input.is_action_just_pressed("ui_reset"):
+				#if Global.in_flag == 0:
+					#reset_timer()
+					#start()
 			
 					
 
