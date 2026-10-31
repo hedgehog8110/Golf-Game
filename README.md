@@ -26,6 +26,18 @@
   * The teleporters:
     * How they work: Both teleporters set their position as a global variable when the level starts, they set their animation depending on what the switch is set to. When the ball or player enters the teleporter, (it uses an on_body_entered() function) it sets a global variable to "Player" or "Ball" depending on which has entered (if the switch is set to the number that determines the object that enters). In both the player and ball code it is detecting if the global variable is set to itself. If it is, it will check which teleporter is transmitting the variable and set its position to the opposite teleporter.
 
+*Download instructions for mac*
+  1. Click on the download button on the itch page
+  2. It should download
+  3. Locate the file in finder and double click it, that should create a folder for it
+  4. Double click the folder
+  5. That should launch the game, but if not, follow next insructions
+  6. Open settings and go to the privacy and security tab
+  7. Scroll to the bottom of the privacy and security tab there should be text saying that the file was blocked by your mac
+  8. Press open anyway
+  9. A new window will open, press open anyeway
+  10. That should work then
+
 *Credits and thanks*
   - Pixabay for music and sounds
   - Friends, family and school teachers for helping out with some bugs
