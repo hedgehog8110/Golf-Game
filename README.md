@@ -1,11 +1,6 @@
 # **Golf?**
 Golf? is a puzzle platformer game about kicking a ball around to a flag to complete levels.
-<img width="400" height="227" alt="Screen Recording 2026-10-31 221144" src="https://github.com/user-attachments/assets/0cb8b368-da4c-4321-b092-f442b6250c32" />
-
-*How to run:*
-  Windows:
-    - Download the .exe
-
+<img width="400" height="227" alt="Screen Recording 2026-10-31 221144 (1)" src="https://github.com/user-attachments/assets/3aa93669-1651-47ee-89dd-da166005fe76" />
 
 *Controls:*
   - When in the start screen, click space to start the game.
