@@ -8,6 +8,7 @@
   - When in the start screen, click space to start the game.
   - A or left arrow to move left, D or right arrow to move right, and W or up arrow to jump.
   - While in the air, tap up arrow or W to double jump in the air.
+  - R key to restart the level if you are stuck
 
 *Gameplay:*
   - Use the control keys to maneuver the ball to the flag at the end of the level.
